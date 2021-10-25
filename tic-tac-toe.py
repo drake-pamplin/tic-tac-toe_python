@@ -1,4 +1,5 @@
 import os
+from platform import system as systemName
 
 referenceTable =(
     "Enter a number in the table below to place your mark:\n"
@@ -39,7 +40,13 @@ def getGameGrid():
         counter += 1
     return output
 
-os.system('cls')
+def clearScreen():
+    command = "clear"
+    if (systemName().lower() == 'windows'):
+        command = "cls"
+    os.system(command)
+
+clearScreen()
 # Game loop
 while not winner:
     # Ouput instructions, reference table, and game grid
@@ -63,17 +70,17 @@ while not winner:
         
     # Parse player input for errors
     if playerInput == "end":
-        os.system('cls')
+        clearScreen()
         break
     try:
         int(playerInput)
     except ValueError:
         error = True
-        os.system('cls')
+        clearScreen()
         continue
     if table[int(playerInput)] != "-":
         error = True
-        os.system('cls')
+        clearScreen()
         continue
         
     # Insert player mark into grid
@@ -101,7 +108,7 @@ while not winner:
             winner = True
             break
     playerOneTurn = not playerOneTurn
-    os.system('cls')
+    clearScreen()
 
 # If there is a winner, display the final grid and results
 if winner:
@@ -120,4 +127,4 @@ if tie:
 
 # Stop the program from ending automatically
 input("Press \"Enter\" to end.")
-os.system('cls')
+clearScreen()

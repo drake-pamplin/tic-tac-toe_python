@@ -1,0 +1,12 @@
+This is my proof-of-concept project for my learning goal of studying Python for the purpose of broadening my knowledge of popular modern programming languages. In this repo, you will find the source code for a standalone exexutable of a game of tic-tac-toe for two players, written with Python best programming practices in mind.
+
+To run the program:
+
+On Windows:
+    1. Navigate to the "deliverables" folder.
+    2. Select and run the "tic-tac-toe.exe" file.
+
+On Mac:
+    1. Ensure that Python is installed.
+    2. Navigate to the project folder.
+    3. Run "py tic-tac-toe.py".

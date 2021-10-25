@@ -1,0 +1,5 @@
+v1.0.0:
+    Initial code push. Base program runnable on both Mac and Windows.
+
+v1.0.1:
+    Bug identified with "clear console" command that keeps it from working on Mac units.
