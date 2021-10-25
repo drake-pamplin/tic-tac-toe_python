@@ -10,3 +10,17 @@ On Mac:
     1. Ensure that Python is installed.
     2. Navigate to the project folder.
     3. Run "py tic-tac-toe.py".
+
+To generate a standalone:
+
+On Windows:
+    1. Ensure Python is installed.
+    2. Ensure pyinstaller is installed.
+    3. In the project directory, run "pyinstaller -F -n tic-tac-toe_vX.X.X tic-tac-toe.py" with desired version name.
+    4. In the "dist" folder, find and move the resulting executable to the "deliverables/Windows" folder.
+
+On Mac:
+    1. Ensure Python no later than 3.7 is installed (or make sure that 3.7 is the active version with "python3 --version").
+    2. Ensure pyinstaller is installed.
+    3. In the project directory, run "/Users/<USER>/Library/Python/3.7/bin/pyinstaller -F -n tic-tac-toe_vX-X-X tic-tac-toe.py" with desired version name.
+    4. In the "dist" folder, find and move the resulting executable to the "deliverables/Mac" folder.

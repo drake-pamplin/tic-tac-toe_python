@@ -1,5 +1,9 @@
 v1.0.0:
-    Initial code push. Base program runnable on both Mac and Windows.
+    - Initial code push. Base program runnable on both Mac and Windows.
 
 v1.0.1:
-    Bug identified with "clear console" command that keeps it from working on Mac units.
+    - Bug identified with "clear console" command that keeps it from working on Mac units.
+
+v1.0.2:
+    - Added build instructions in the README.
+    - Updated run instructions for Mac now that standalone is possible (although only if performed from a Mac).

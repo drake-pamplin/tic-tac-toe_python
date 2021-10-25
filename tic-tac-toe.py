@@ -1,4 +1,5 @@
 import os
+import sys
 from platform import system as systemName
 
 referenceTable =(
@@ -128,3 +129,5 @@ if tie:
 # Stop the program from ending automatically
 input("Press \"Enter\" to end.")
 clearScreen()
+if (systemName().lower() == "darwin"):
+    os.system("osascript -e 'quit app \"{}\"".format(os.path.splitext(os.path.basename(__file__))[0]))
