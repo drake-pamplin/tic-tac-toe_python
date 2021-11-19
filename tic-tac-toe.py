@@ -24,6 +24,7 @@ wins = [
 ]
 playerOnePrompt = "P1 input: "
 playerTwoPrompt = "P2 input: "
+playerVictory = "Congratulations player {}!"
 playerOneTurn = True
 error = False
 winner = False
@@ -62,11 +63,7 @@ while not winner:
         error = False
     
     # Ask for the proper player input (player one or player two)
-    playerInput = ""
-    if playerOneTurn:
-        playerInput = input(playerOnePrompt)
-    else:
-        playerInput = input(playerTwoPrompt)
+    playerInput = input(playerOnePrompt if playerOneTurn else playerTwoPrompt)
         
     # Parse player input for errors
     if playerInput == "end":
@@ -84,21 +81,14 @@ while not winner:
         continue
         
     # Insert player mark into grid
-    if playerOneTurn:
-        table[int(playerInput)] = "X"
-    else:
-        table[int(playerInput)] = "O"
+    table[int(playerInput)] = "X" if playerOneTurn else "O"
     
     # Check for winner
     spots = ""
-    spotToCheck = ""
-    if playerOneTurn:
-        spotToCheck = "X"
-    else:
-        spotToCheck = "O"
     counter = 0
+    playerToken = "X" if playerOneTurn else "O"
     for spot in table:
-        if spot == spotToCheck:
+        if spot == playerToken:
             spots += str(counter)
         counter += 1
     for win in wins:
@@ -114,10 +104,7 @@ while not winner:
 if winner:
     gameTable = getGameGrid()
     print(referenceTable + "\n\n" + gameTable + "\n")
-    if not playerOneTurn:
-        print("Congratulations player one!")
-    else:
-        print("Congratulations player two!")
+    print(playerVictory.format("one" if not playerOneTurn else "two"))
 
 # If there is a tie, displaye the final grid and declare the tie
 if tie:

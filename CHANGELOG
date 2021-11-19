@@ -7,3 +7,6 @@ v1.0.1:
 v1.0.2:
     - Added build instructions in the README.
     - Updated run instructions for Mac now that standalone is possible (although only if performed from a Mac).
+
+v1.0.3:
+    - Added ternary operators to further shorten the game file.
