@@ -10,3 +10,7 @@ v1.0.2:
 
 v1.0.3:
     - Added ternary operators to further shorten the game file.
+
+v1.1:
+    - Added game grid.
+    - Added color to indicate winner.
