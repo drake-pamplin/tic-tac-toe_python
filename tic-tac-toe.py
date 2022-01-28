@@ -2,10 +2,12 @@ import os
 from platform import system as systemName
 
 referenceTable =(
-    "Enter a number in the table below to place your mark:\n"
-    "012" + "\n" +
-    "345" + "\n" +
-    "678"
+    "Enter a number in the table below to place your mark:\n\n"
+    " 0 | 1 | 2" + "\n" +
+    "───────────\n" +
+    " 3 | 4 | 5" + "\n" +
+    "───────────\n" +
+    " 6 | 7 | 8"
 )
 table = [
     "-","-","-",
@@ -22,9 +24,13 @@ wins = [
     "048",
     "246"
 ]
+winString = ""
 playerOnePrompt = "P1 input: "
 playerTwoPrompt = "P2 input: "
 playerVictory = "Congratulations player {}!"
+tableDivider = "====================================================="
+greenTextStart = "\033[92m"
+normalTextStart = "\033[0m"
 playerOneTurn = True
 error = False
 winner = False
@@ -38,7 +44,27 @@ def getGameGrid():
         output += (" " + spot + " ")
         if counter % 3 == 2 and counter < 8:
             output += "\n───────────\n"
+        elif counter < 8:
+            output += "|"
+        counter += 1
+    return output
+
+def getWinningGameGrid(win):
+    output = ""
+    counter = 0
+    for spot in table:
+        newSpot = ""
+        if (str(counter) == win[0] or
+                str(counter) == win[1] or
+                str(counter) == win[2]):
+            newSpot = " " + greenTextStart + spot + normalTextStart + " "
         else:
+            newSpot = (" " + spot + " ")
+
+        output += newSpot
+        if counter % 3 == 2 and counter < 8:
+            output += "\n───────────\n"
+        elif counter < 8:
             output += "|"
         counter += 1
     return output
@@ -57,7 +83,7 @@ while not winner:
     if "-" not in gameTable:
         tie = True
         break
-    print("Type \"end\" to quit.\n" + referenceTable + "\n\n" + gameTable + "\n")
+    print("Type \"end\" to quit.\n" + referenceTable + "\n\n" + tableDivider + "\n\n" + gameTable + "\n")
     
     # If the previous loop resulted in an error, inform the player
     if error:
@@ -98,20 +124,21 @@ while not winner:
                 win[1] in spots and 
                 win[2] in spots):
             winner = True
+            winString = win
             break
     playerOneTurn = not playerOneTurn
     clearScreen()
 
 # If there is a winner, display the final grid and results
 if winner:
-    gameTable = getGameGrid()
-    print(referenceTable + "\n\n" + gameTable + "\n")
+    gameTable = getWinningGameGrid(winString)
+    print(referenceTable + "\n\n" + tableDivider + "\n\n" + gameTable + "\n")
     print(playerVictory.format("one" if not playerOneTurn else "two"))
 
 # If there is a tie, displaye the final grid and declare the tie
 if tie:
     gameTable = getGameGrid()
-    print(referenceTable + "\n\n" + gameTable + "\n")
+    print(referenceTable + "\n\n" + tableDivider + "\n\n" + gameTable + "\n")
     print("It's a tie!")
 
 # Stop the program from ending automatically
