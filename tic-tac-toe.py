@@ -35,9 +35,11 @@ def getGameGrid():
     output = ""
     counter = 0
     for spot in table:
-        output += spot
+        output += (" " + spot + " ")
         if counter % 3 == 2 and counter < 8:
-            output += "\n"
+            output += "\n───────────\n"
+        else:
+            output += "|"
         counter += 1
     return output
 
