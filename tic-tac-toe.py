@@ -40,6 +40,10 @@ while not winner:
         error = True
         clearScreen()
         continue
+    if (int(playerInput) > 8):
+        error = True
+        clearScreen()
+        continue
     if table[int(playerInput)] != "-":
         error = True
         clearScreen()

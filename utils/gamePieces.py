@@ -20,7 +20,9 @@ wins = [
 
 tableDivider = "====================================================="
 
-greenTextStart = "\033[92m"
+playerOneText = "\033[1;31;47m"
+playerTwoText = "\033[1;34;47m"
+winTextStart = "\033[0;37;42m"
 normalTextStart = "\033[0m"
 
 playerVictory = "Congratulations player {}!"
