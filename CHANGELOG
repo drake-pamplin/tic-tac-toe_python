@@ -19,4 +19,6 @@ v1.1.1:
     - Separated game logic into separate directories.
 
 v1.1.2:
-    - 
+    - Added colored player tiles.
+    - Added colored win state tiles.
+    - (BUG FIX) Player input above 8 causing out of bounds error; values above 8 now throw errors.
