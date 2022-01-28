@@ -16,4 +16,4 @@ v1.1:
     - Added color to indicate winner.
 
 v1.1.1:
-    -
+    - Separated game logic into separate directories.
